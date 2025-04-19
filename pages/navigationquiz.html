@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation UI Quiz</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Navigation Styles */
+    nav {
+        background: #333;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+
+    /* Quiz Container Styles */
+    .quiz-container {
+      max-width: 600px;
+      background: white;
+      padding: 30px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Typography */
+    h2 {
+      color: #007acc;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .question p {
+      font-weight: bold;
+    }
+
+    /* Button Styles */
+    button {
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #005f99;
+    }
+
+    /* Result Styles */
+    .result {
+      font-weight: bold;
+      margin-top: 20px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../pages/accessibility.html">Accessibility</a>
+        <a href="../pages/userResearch.html">User Research</a>
+        <a href="../pages/responsive.html">Responsive Design</a>
+        <a href="../pages/microinteraction.html">Microinteractions</a>
+        <a href="../pages/navigation.html">Navigation</a>
+    </nav>
+  <div class="quiz-container">
+    <h2>Navigation UI Quiz</h2>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. What is the main goal of intuitive navigation?</p>
+        <label><input type="radio" name="q1" value="a"> To display as many links as possible</label><br>
+        <label><input type="radio" name="q1" value="b"> To help users find content easily</label><br>
+        <label><input type="radio" name="q1" value="c"> To confuse users with creative layouts</label>
+      </div>
+
+      <div class="question">
+        <p>2. What layout is commonly used for mobile navigation?</p>
+        <label><input type="radio" name="q2" value="a"> Side tab bar</label><br>
+        <label><input type="radio" name="q2" value="b"> Hamburger menu</label><br>
+        <label><input type="radio" name="q2" value="c"> Full footer menu</label>
+      </div>
+
+      <div class="question">
+        <p>3. Why is consistency important in navigation?</p>
+        <label><input type="radio" name="q3" value="a"> It helps users know what to expect</label><br>
+        <label><input type="radio" name="q3" value="b"> It makes the design more colorful</label><br>
+        <label><input type="radio" name="q3" value="c"> It allows random page layouts</label>
+      </div>
+
+      <div class="question">
+        <p>4. What is a benefit of using breadcrumb navigation?</p>
+        <label><input type="radio" name="q4" value="a"> Adds decorative elements</label><br>
+        <label><input type="radio" name="q4" value="b"> Shows users their location in site hierarchy</label><br>
+        <label><input type="radio" name="q4" value="c"> Automatically scrolls the page</label>
+      </div>
+
+      <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const answers = {
+        q1: 'b',
+        q2: 'b',
+        q3: 'a',
+        q4: 'b'
+      };
+      let score = 0;
+      let total = Object.keys(answers).length;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+      const result = document.getElementById('result');
+      result.textContent = `You scored ${score} out of ${total}.`;
+    }
+  </script>
+</body>
+</html>

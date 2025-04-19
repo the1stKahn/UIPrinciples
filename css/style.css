@@ -1,0 +1,90 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header and Section Styles */
+header, section {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+header {
+    background-color: #007acc;
+    color: white;
+    text-align: center;
+}
+
+/*Header Image*/
+.HeaderBackGround{
+    border-radius: 8px 8px 8px 8px;
+}
+
+/* Typography */
+ h2, h3 {
+    color: #007acc;
+}
+
+h1{
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+/* Navigation Styles */
+nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* List Styles */
+ul {
+    margin-top: 0;
+}
+
+section img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* Video Section Styles */
+#video {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1000px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#video h2 {
+    color: #007acc;
+    margin-bottom: 20px;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 563px; /* 16:9 aspect ratio */
+    border: none;
+    border-radius: 8px;
+}

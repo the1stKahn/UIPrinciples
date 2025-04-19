@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility UI Quiz</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    /* Navigation Styles */
+    nav {
+        background: #333;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+
+    /* Container Styles */
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Typography */
+    h1 {
+      text-align: center;
+      color: #007acc;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .answers label {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    /* Button Styles */
+    button {
+      background-color: #007acc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #005f99;
+    }
+
+    /* Result Styles */
+    .result {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../pages/accessibility.html">Accessibility</a>
+        <a href="../pages/userResearch.html">User Research</a>
+        <a href="../pages/responsive.html">Responsive Design</a>
+        <a href="../pages/microinteraction.html">Microinteractions</a>
+        <a href="../pages/navigation.html">Navigation</a>
+    </nav>
+  <div class="container">
+    <h1>Accessibility UI Quiz</h1>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. What does "alt text" provide for users?</p>
+        <div class="answers">
+          <label><input type="radio" name="q1" value="a"> A description for search engines</label>
+          <label><input type="radio" name="q1" value="b"> Decorative effects for the page</label>
+          <label><input type="radio" name="q1" value="c"> Text for screen readers to describe images</label>
+          <label><input type="radio" name="q1" value="d"> Links to additional information</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>2. Why is color contrast important in UI design?</p>
+        <div class="answers">
+          <label><input type="radio" name="q2" value="a"> It makes the page more colorful</label>
+          <label><input type="radio" name="q2" value="b"> It improves readability for visually impaired users</label>
+          <label><input type="radio" name="q2" value="c"> It attracts more users</label>
+          <label><input type="radio" name="q2" value="d"> It helps with SEO</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>3. Which is an accessibility best practice?</p>
+        <div class="answers">
+          <label><input type="radio" name="q3" value="a"> Use only images for navigation</label>
+          <label><input type="radio" name="q3" value="b"> Hide all headings</label>
+          <label><input type="radio" name="q3" value="c"> Provide captions for videos</label>
+          <label><input type="radio" name="q3" value="d"> Use flashing animations</label>
+        </div>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Submit Answers</button>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function submitQuiz() {
+      let score = 0;
+      const total = 3;
+      const answers = ['c', 'b', 'c'];
+
+      for (let i = 1; i <= total; i++) {
+        const question = document.querySelector(`input[name="q${i}"]:checked`);
+        if (question && question.value === answers[i - 1]) {
+          score++;
+        }
+      }
+
+      document.getElementById('result').textContent = `You scored ${score} out of ${total}.`;
+    }
+  </script>
+</body>
+</html>

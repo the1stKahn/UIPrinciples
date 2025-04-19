@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microinteraction UI Quiz</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    /* Quiz Container Styles */
+    .quiz-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Navigation Styles */
+    nav {
+        background: #333;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    /* Typography */
+    h2 {
+      color: #007acc;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    /* Button Styles */
+    button {
+      background-color: #007acc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005f99;
+    }
+
+    /* Result Styles */
+    .result {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../pages/accessibility.html">Accessibility</a>
+        <a href="../pages/userResearch.html">User Research</a>
+        <a href="../pages/responsive.html">Responsive Design</a>
+        <a href="../pages/microinteraction.html">Microinteractions</a>
+        <a href="../pages/navigation.html">Navigation</a>
+    </nav>
+  <div class="quiz-container">
+    <h2>Microinteraction UI Quiz</h2>
+    <div id="quiz">
+      <div class="question">
+        <p>1. What is a microinteraction?</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> A large-scale animation</label>
+          <label><input type="radio" name="q1" value="b"> A complete web application</label>
+          <label><input type="radio" name="q1" value="c"> A small UI event focused on a single task</label>
+          <label><input type="radio" name="q1" value="d"> A style sheet property</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>2. Which of these is an example of a microinteraction?</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> Typing indicator in messaging apps</label>
+          <label><input type="radio" name="q2" value="b"> Video streaming</label>
+          <label><input type="radio" name="q2" value="c"> Loading entire web pages</label>
+          <label><input type="radio" name="q2" value="d"> Complex data dashboards</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>3. What should be the primary characteristic of a good microinteraction?</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> Distraction</label>
+          <label><input type="radio" name="q3" value="b"> Complexity</label>
+          <label><input type="radio" name="q3" value="c"> Subtlety and purposefulness</label>
+          <label><input type="radio" name="q3" value="d"> Large file size</label>
+        </div>
+      </div>
+
+      <button onclick="checkAnswers()">Submit Answers</button>
+      <div class="result" id="result"></div>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+      const answers = {
+        q1: 'c',
+        q2: 'a',
+        q3: 'c'
+      };
+
+      for (let key in answers) {
+        const radios = document.getElementsByName(key);
+        for (let radio of radios) {
+          if (radio.checked && radio.value === answers[key]) {
+            score++;
+          }
+        }
+      }
+
+      const total = Object.keys(answers).length;
+      document.getElementById("result").textContent = `You scored ${score} out of ${total}`;
+    }
+  </script>
+</body>
+</html>
